@@ -1,0 +1,3284 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Стоматология в Стамбуле — безопасное сопровождение пациента</title>
+
+  <style>
+    /*
+      ==========================================================
+      СЕРЬЁЗНЫЙ САЙТ "СТОМАТОЛОГИЯ В СТАМБУЛЕ"
+      ==========================================================
+
+      Это не одностраничник.
+      Это многостраничный сайт внутри одного HTML-файла.
+
+      Почему так:
+      - Вы можете скопировать весь код и вставить в онлайн HTML.
+      - Не нужен сервер.
+      - Не нужны отдельные файлы.
+      - Но у сайта есть полноценная структура:
+        Главная
+        О нас
+        Почему Стамбул
+        Виды лечения
+        Маршрут пациента
+        Безопасность
+        Подготовка
+        После лечения
+        Цены
+        FAQ
+        Контакты
+
+      Как работает:
+      - Страницы переключаются через JavaScript.
+      - Адрес меняется через #page.
+      - Это выглядит как обычный сайт.
+      - Можно развивать дальше в полноценный проект.
+
+      Где менять:
+      1. Название компании — ищите LGH Dental Care
+      2. Телефон, Telegram, MAX, WhatsApp — секция contacts и top-line
+      3. Тексты страниц — объект sitePages в JavaScript
+      4. Пакеты — секция prices
+      5. Тема оформления — :root и [data-theme="dark"] в CSS
+      6. Переключатель темы — кнопка #themeToggle в правом нижнем углу
+      ==========================================================
+    */
+
+    /* ================= СВЕТЛАЯ ТЕМА: фиолетово-графитовая ================= */
+    :root {
+      --bg: #ebe7f0;
+      --paper: #f3f0f7;
+      --white: #faf8fc;
+      --dark: #2d2640;
+      --panel: #2d2640;
+      --text: #3f3852;
+      --muted: #6e667f;
+      --line: rgba(45, 38, 64, 0.14);
+      --primary: #7b6b9e;
+      --primary-dark: #5f4f82;
+      --gold: #a894c8;
+      --red: #b85c6f;
+      --heading-accent: #8f3348;
+      --heading-glow: rgba(143, 51, 72, 0.14);
+      --soft-green: rgba(123, 107, 158, 0.14);
+      --soft-gold: rgba(168, 148, 200, 0.22);
+      --sidebar-link-bg: rgba(155, 125, 212, 0.32);
+      --sidebar-link-bg-hover: rgba(155, 125, 212, 0.46);
+      --sidebar-link-border: rgba(123, 107, 158, 0.38);
+      --sidebar-link-border-hover: rgba(95, 79, 130, 0.5);
+      --shadow: 0 18px 45px rgba(36, 28, 56, 0.14);
+      --card-shadow: 0 8px 26px rgba(36, 28, 56, 0.08);
+      --header-bg: rgba(235, 231, 240, 0.92);
+      --input-bg: #f7f4fa;
+      --focus-ring: rgba(123, 107, 158, 0.18);
+      --mini-card-bg: rgba(250, 248, 252, 0.82);
+      --notice-text: #4a3f63;
+      --notice-strong: #2d2640;
+      --notice-border: rgba(123, 107, 158, 0.28);
+      --price-label-text: #4a3f63;
+      --badge-gold-text: #4a3f63;
+      --footer-bg: #1a1626;
+      --hero-glow: rgba(168, 148, 200, 0.28);
+      --logo-shadow: rgba(0, 0, 0, 0.38);
+      --logo-graphite: #3f3f48;
+      --logo-graphite-deep: #222228;
+      --logo-gold: #c9a962;
+      --logo-gold-bright: #e2c878;
+      --logo-black: #0a0a0c;
+      --btn-primary-shadow: rgba(95, 79, 130, 0.28);
+      --panel-text: rgba(255, 255, 255, 0.82);
+      --panel-text-muted: rgba(255, 255, 255, 0.72);
+      --panel-overlay: rgba(255, 255, 255, 0.07);
+      --panel-overlay-border: rgba(255, 255, 255, 0.12);
+      --radius: 24px;
+      --radius-small: 16px;
+      --max: 1180px;
+    }
+
+    /* ================= ТЁМНАЯ ТЕМА: фиолетово-графитовая ================= */
+    [data-theme="dark"] {
+      --bg: #1a1724;
+      --paper: #211d2c;
+      --white: #2a2536;
+      --dark: #ede9f5;
+      --panel: #0e0c14;
+      --text: #d4cee3;
+      --muted: #a59bb5;
+      --line: rgba(255, 255, 255, 0.1);
+      --primary: #b4a0d8;
+      --primary-dark: #9b87c4;
+      --gold: #c9b8e8;
+      --red: #e08a9a;
+      --heading-accent: #e8a0ad;
+      --heading-glow: rgba(232, 160, 173, 0.22);
+      --soft-green: rgba(180, 160, 216, 0.16);
+      --soft-gold: rgba(180, 160, 216, 0.22);
+      --sidebar-link-bg: rgba(180, 160, 216, 0.34);
+      --sidebar-link-bg-hover: rgba(180, 160, 216, 0.5);
+      --sidebar-link-border: rgba(180, 160, 216, 0.42);
+      --sidebar-link-border-hover: rgba(201, 184, 232, 0.55);
+      --card-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
+      --header-bg: rgba(26, 23, 36, 0.92);
+      --input-bg: #221e2e;
+      --focus-ring: rgba(180, 160, 216, 0.22);
+      --mini-card-bg: rgba(42, 37, 54, 0.88);
+      --notice-text: #d4cee3;
+      --notice-strong: #f3eff8;
+      --notice-border: rgba(180, 160, 216, 0.28);
+      --price-label-text: #d4cee3;
+      --badge-gold-text: #d4cee3;
+      --footer-bg: #0a0810;
+      --hero-glow: rgba(180, 160, 216, 0.18);
+      --logo-shadow: rgba(180, 160, 216, 0.22);
+      --btn-primary-shadow: rgba(155, 135, 196, 0.32);
+      --panel-text: rgba(255, 255, 255, 0.9);
+      --panel-text-muted: rgba(255, 255, 255, 0.72);
+      --panel-overlay: rgba(255, 255, 255, 0.05);
+      --panel-overlay-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), 92%);
+      margin: 0 auto;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ================= HEADER ================= */
+
+    .top-line {
+      background: var(--panel);
+      color: var(--panel-text-muted);
+      font-size: 14px;
+      padding: 9px 0;
+    }
+
+    .top-line-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-line strong {
+      color: var(--gold);
+    }
+
+    .top-line a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .top-line a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--header-bg);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    header .container.navbar {
+      position: relative;
+    }
+
+    .navbar {
+      min-height: 184px;
+      padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 320px;
+    }
+
+    .logo-mark {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      box-shadow: 0 10px 28px var(--logo-shadow);
+    }
+
+    .logo-text strong {
+      display: block;
+      color: var(--dark);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    /* Подзаголовок логотипа: «Стоматология в Стамбуле» — жирный красный */
+    .logo-text span {
+      display: block;
+      color: var(--red);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .nav {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active-link {
+      background: var(--sidebar-link-bg);
+      color: #ffffff;
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border);
+    }
+
+    .nav a.active-link {
+      background: var(--sidebar-link-bg-hover);
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border-hover);
+    }
+
+    [data-theme="light"] .nav a {
+      color: var(--dark);
+    }
+
+    [data-theme="light"] .nav a:hover,
+    [data-theme="light"] .nav a.active-link {
+      background: var(--sidebar-link-bg);
+      color: #000000;
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border);
+    }
+
+    [data-theme="light"] .nav a.active-link {
+      background: var(--sidebar-link-bg-hover);
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border-hover);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: var(--white);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-size: 15px;
+    }
+
+    /* Основные кнопки — фиолетовый цвет, светящийся 3D */
+    .btn-primary {
+      background: linear-gradient(180deg, #9a8ab8 0%, var(--primary) 50%, var(--primary-dark) 100%);
+      color: #ffffff;
+      border: 1px solid rgba(180, 165, 210, 0.55);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.38) inset,
+        0 -3px 0 rgba(70, 55, 100, 0.38) inset,
+        0 10px 26px rgba(123, 107, 158, 0.52),
+        0 4px 14px rgba(95, 79, 130, 0.38);
+      text-shadow: 0 1px 0 rgba(40, 30, 60, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(180deg, #afa0c8 0%, #8f7fb0 48%, var(--primary-dark) 100%);
+      transform: translateY(-3px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.45) inset,
+        0 -3px 0 rgba(70, 55, 100, 0.42) inset,
+        0 14px 34px rgba(123, 107, 158, 0.62),
+        0 6px 18px rgba(95, 79, 130, 0.45);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.22) inset,
+        0 3px 6px rgba(50, 40, 75, 0.4) inset,
+        0 5px 14px rgba(123, 107, 158, 0.4);
+    }
+
+    [data-theme="dark"] .btn-primary {
+      background: linear-gradient(180deg, #c9b8e8 0%, var(--primary) 50%, var(--primary-dark) 100%);
+      border-color: rgba(200, 185, 230, 0.45);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.35) inset,
+        0 -3px 0 rgba(60, 45, 90, 0.45) inset,
+        0 10px 28px rgba(180, 160, 216, 0.45),
+        0 4px 14px rgba(155, 135, 196, 0.35);
+    }
+
+    [data-theme="dark"] .btn-primary:hover {
+      background: linear-gradient(180deg, #d4c4ee 0%, #beb0de 48%, var(--primary-dark) 100%);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.42) inset,
+        0 -3px 0 rgba(60, 45, 90, 0.48) inset,
+        0 14px 36px rgba(180, 160, 216, 0.55),
+        0 6px 18px rgba(155, 135, 196, 0.42);
+    }
+
+    /* Кнопка «Заявка» в шапке: ярко-красная с 3D-подсветкой */
+    .header-actions .btn-primary {
+      background: linear-gradient(180deg, #ff5252 0%, #e61919 48%, #c41414 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255, 140, 140, 0.55);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.38) inset,
+        0 -3px 0 rgba(110, 0, 0, 0.38) inset,
+        0 10px 24px rgba(255, 45, 45, 0.5),
+        0 4px 14px rgba(200, 20, 20, 0.38);
+      text-shadow: 0 1px 0 rgba(100, 0, 0, 0.35);
+    }
+
+    .header-actions .btn-primary:hover {
+      background: linear-gradient(180deg, #ff6b6b 0%, #f02525 48%, #d11818 100%);
+      transform: translateY(-3px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.45) inset,
+        0 -3px 0 rgba(110, 0, 0, 0.42) inset,
+        0 14px 32px rgba(255, 55, 55, 0.58),
+        0 6px 18px rgba(210, 25, 25, 0.45);
+    }
+
+    .header-actions .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.22) inset,
+        0 3px 6px rgba(90, 0, 0, 0.45) inset,
+        0 5px 14px rgba(255, 40, 40, 0.4);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--dark);
+      border: 1px solid var(--line);
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-dark {
+      background: var(--panel);
+      color: var(--panel-text);
+    }
+
+    .btn-dark:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    /* ================= COMMON ================= */
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-soft {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-dark {
+      background: var(--panel);
+      color: var(--panel-text);
+    }
+
+    .section-dark .section-title {
+      color: var(--heading-accent);
+    }
+
+    .section-dark h2,
+    .section-dark h3 {
+      color: var(--heading-accent);
+    }
+
+    .section-dark .section-subtitle,
+    .section-dark p {
+      color: var(--panel-text-muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sidebar-link-bg);
+      color: var(--primary-dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 18px;
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border);
+    }
+
+    [data-theme="dark"] .badge:not(.gold) {
+      color: #f0ecf5;
+    }
+
+    .badge.gold {
+      background: var(--sidebar-link-bg);
+      color: #000000;
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border);
+    }
+
+    .section-dark .badge.gold {
+      color: #000000;
+    }
+
+    [data-theme="dark"] .badge.gold {
+      color: #ffffff;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--heading-accent);
+      margin-bottom: 18px;
+    }
+
+    /* Заголовки разделов — чистый красный, без обводки; мягкая тень для глубины */
+    .section-title,
+    main h1,
+    main h2,
+    main h3,
+    .faq-question,
+    .search-panel label,
+    .content-box h2,
+    .content-box h3,
+    .card h3,
+    .contact-card h3,
+    .hero h1,
+    .hero h1 span,
+    .section-dark h2,
+    .section-dark h3,
+    .section-dark .section-title {
+      color: var(--heading-accent);
+      font-weight: 800;
+      -webkit-text-stroke: 0;
+      paint-order: unset;
+      text-shadow: 0 2px 16px var(--heading-glow);
+    }
+
+    /* Подзаголовки в статьях — красная полоска слева вместо обводки букв */
+    .content-box h2:not(:first-child) {
+      padding-left: 16px;
+      border-left: 4px solid var(--heading-accent);
+    }
+
+    .section-subtitle {
+      max-width: 830px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 38px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .card h3 {
+      color: var(--heading-accent);
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--soft-green);
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 220px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Заголовок бокового меню: «Разделы» и аналоги — чёрный жирный */
+    .sidebar-title {
+      font-weight: 900;
+      color: #000000;
+      margin-bottom: 6px;
+      -webkit-text-stroke: 0;
+      text-shadow: none;
+    }
+
+    [data-theme="dark"] .sidebar-title {
+      color: #f0ecf5;
+    }
+
+    /* Пункты меню — чёрный жирный с фиолетовой подсветкой */
+    .sidebar a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: #000000;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 14px;
+      background: var(--sidebar-link-bg);
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sidebar a:hover {
+      background: var(--sidebar-link-bg-hover);
+      color: #000000;
+      box-shadow: inset 0 0 0 1px var(--sidebar-link-border-hover);
+    }
+
+    [data-theme="dark"] .sidebar a {
+      color: #f0ecf5;
+    }
+
+    [data-theme="dark"] .sidebar a:hover {
+      background: var(--sidebar-link-bg-hover);
+      color: #ffffff;
+    }
+
+    .content-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 38px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .content-box h2 {
+      font-size: 34px;
+      line-height: 1.15;
+      color: var(--heading-accent);
+      margin: 28px 0 14px;
+    }
+
+    .content-box h2:first-child {
+      margin-top: 0;
+    }
+
+    .content-box h3 {
+      color: color-mix(in srgb, var(--heading-accent) 88%, var(--dark));
+      font-size: 24px;
+      margin: 24px 0 10px;
+    }
+
+    [data-theme="dark"] .content-box h3 {
+      color: color-mix(in srgb, var(--heading-accent) 90%, #ffffff);
+    }
+
+    /* Статьи: только верхний заголовок красный, подзаголовки — чёрный жирный */
+    #page-safety .content-box h2:not(:first-child),
+    #page-prepare .content-box h2:not(:first-child),
+    #page-aftercare .content-box h2:not(:first-child) {
+      color: #000000;
+      font-size: 28px;
+      font-weight: 900;
+      -webkit-text-stroke: 0;
+      text-shadow: none;
+      border-left: none;
+      padding-left: 0;
+    }
+
+    [data-theme="dark"] #page-safety .content-box h2:not(:first-child),
+    [data-theme="dark"] #page-prepare .content-box h2:not(:first-child),
+    [data-theme="dark"] #page-aftercare .content-box h2:not(:first-child) {
+      color: #f0ecf5;
+    }
+
+    .content-box p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .content-box ul,
+    .content-box ol {
+      margin: 12px 0 22px 22px;
+      color: var(--text);
+    }
+
+    .content-box li {
+      margin-bottom: 8px;
+    }
+
+    .notice {
+      background: var(--soft-gold);
+      border: 1px solid var(--notice-border);
+      border-radius: 18px;
+      padding: 20px;
+      margin: 24px 0;
+      color: var(--notice-text);
+    }
+
+    .notice strong {
+      color: var(--notice-strong);
+    }
+
+    .warning {
+      background: rgba(184, 92, 111, 0.12);
+      border: 1px solid rgba(184, 92, 111, 0.22);
+      border-radius: 18px;
+      padding: 20px;
+      margin: 24px 0;
+      color: var(--red);
+    }
+
+    /* Важное правило — красное выделение */
+    .rule {
+      background: rgba(143, 51, 72, 0.1);
+      border: 1px solid rgba(143, 51, 72, 0.28);
+      border-left: 5px solid var(--heading-accent);
+      border-radius: 18px;
+      padding: 20px 22px;
+      margin: 24px 0;
+      color: var(--heading-accent);
+      font-weight: 800;
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    [data-theme="dark"] .rule {
+      background: rgba(232, 160, 173, 0.12);
+      border-color: rgba(232, 160, 173, 0.32);
+      border-left-color: var(--heading-accent);
+      color: #f0c8d2;
+    }
+
+    .quote {
+      background: var(--panel);
+      color: var(--panel-text);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin: 30px 0;
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    .quote strong {
+      color: var(--gold);
+    }
+
+    /* ================= HOME ================= */
+
+    .hero {
+      padding: 78px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.96;
+      letter-spacing: -2px;
+      color: var(--heading-accent);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--heading-accent);
+    }
+
+    .hero-text {
+      font-size: 20px;
+      color: var(--text);
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .hero-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: var(--mini-card-bg);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .mini-card strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-board {
+      background: var(--panel);
+      color: var(--panel-text);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-board:before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: var(--hero-glow);
+      right: -80px;
+      top: -80px;
+    }
+
+    .hero-board > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-board h2 {
+      font-size: 30px;
+      line-height: 1.12;
+      margin-bottom: 18px;
+      color: #ffffff;
+      -webkit-text-stroke: 0;
+      paint-order: normal;
+      text-shadow: none;
+    }
+
+    .route-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .route-item {
+      display: flex;
+      gap: 12px;
+      padding: 15px;
+      background: var(--panel-overlay);
+      border: 1px solid var(--panel-overlay-border);
+      border-radius: 16px;
+    }
+
+    .route-item span {
+      color: var(--gold);
+      font-weight: 900;
+      min-width: 34px;
+    }
+
+    .route-item p {
+      color: var(--panel-text-muted);
+      font-size: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 44px;
+    }
+
+    .stat {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .search-panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 30px;
+    }
+
+    .search-panel label {
+      display: block;
+      font-weight: 900;
+      color: var(--heading-accent);
+      margin-bottom: 10px;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--input-bg);
+      border-radius: 15px;
+      padding: 14px 15px;
+      outline: none;
+      color: var(--dark);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--focus-ring);
+    }
+
+    .search-results {
+      display: none;
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .search-result {
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--bg);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .search-result:hover {
+      background: var(--soft-green);
+    }
+
+    .search-result strong {
+      display: block;
+      color: var(--dark);
+    }
+
+    .search-result span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ================= TREATMENTS ================= */
+
+    .treatment-card {
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Раздел «Лечение»: крупные заголовки карточек — чёрный текст */
+    #page-treatments .treatment-card h3 {
+      font-size: 30px;
+      line-height: 1.12;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: #000000;
+      -webkit-text-stroke: 0;
+      text-shadow: none;
+    }
+
+    .treatment-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      background: var(--soft-green);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* ================= TIMELINE ================= */
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 20px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .timeline-number {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: var(--primary);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    /* Маршрут: заголовки шагов — чёрные, чуть крупнее */
+    .timeline-item h3 {
+      color: #000000;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      -webkit-text-stroke: 0;
+      text-shadow: none;
+    }
+
+    [data-theme="dark"] .timeline-item h3 {
+      color: #f0ecf5;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    /* ================= PRICES ================= */
+
+    .price-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--primary);
+      transform: scale(1.02);
+    }
+
+    .price-label {
+      display: inline-flex;
+      background: var(--soft-gold);
+      color: var(--price-label-text);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 31px;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--dark);
+      margin: 16px 0 6px;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 22px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .price-card li {
+      color: var(--muted);
+      display: flex;
+      gap: 9px;
+    }
+
+    .price-card li:before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    /* ================= FAQ ================= */
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      color: var(--heading-accent);
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: var(--muted);
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .plus {
+      transform: rotate(45deg);
+    }
+
+    .plus {
+      color: var(--primary);
+      font-size: 22px;
+      transition: 0.2s ease;
+    }
+
+    /* ================= CONTACTS ================= */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--panel-overlay);
+      border: 1px solid var(--panel-overlay-border);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      color: var(--heading-accent);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--panel-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .contact-card a {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    form {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      color: var(--dark);
+      border: 1px solid var(--line);
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--dark);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--soft-green);
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--footer-bg);
+      color: var(--panel-text-muted);
+      padding: 36px 0;
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 24px;
+    }
+
+    footer strong {
+      color: var(--panel-text);
+    }
+
+    footer a {
+      display: block;
+      color: var(--panel-text-muted);
+      margin-top: 8px;
+      cursor: pointer;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    /* ================= ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ================= */
+
+    .theme-toggle {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2000;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--dark);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      line-height: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .theme-toggle:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px var(--focus-ring);
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 1050px) {
+      .navbar {
+        min-height: 148px;
+      }
+
+      .logo-mark {
+        width: 128px;
+        height: 128px;
+      }
+
+      .nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 148px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav.active {
+        display: flex;
+      }
+
+      .nav a {
+        border-radius: 14px;
+        padding: 13px 16px;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .header-actions .btn-primary {
+        display: none;
+      }
+
+      .hero-layout,
+      .article-layout,
+      .contact-layout,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .stats,
+      .hero-mini-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .top-line-content {
+        font-size: 13px;
+      }
+
+      .navbar {
+        min-height: 132px;
+      }
+
+      .nav {
+        top: 132px;
+      }
+
+      .logo {
+        min-width: auto;
+      }
+
+      .logo-text strong {
+        font-size: 16px;
+      }
+
+      .logo-text span {
+        font-size: 12px;
+      }
+
+      .logo-mark {
+        width: 112px;
+        height: 112px;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .hero {
+        padding: 54px 0 62px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-text {
+        font-size: 18px;
+      }
+
+      .stats,
+      .hero-mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .content-box {
+        padding: 24px;
+      }
+
+      .content-box h2 {
+        font-size: 28px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Ранняя установка темы — без мигания при загрузке страницы -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem("lghDentalTheme");
+      if (savedTheme === "dark" || savedTheme === "light") {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <!-- ================= TOP LINE ================= -->
+
+  <div class="top-line">
+    <div class="container top-line-content">
+      <div><strong>Стамбул:</strong> стоматологическая поездка с сопровождением</div>
+      <div>
+        <a href="https://t.me/S_Lait" target="_blank" rel="noopener">Telegram @S_Lait</a>
+        · MAX <a href="tel:+9034576854">+903 457 6854</a>
+        · <a href="https://wa.me/79585466084" target="_blank" rel="noopener">WhatsApp +79585466084</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" onclick="showPage('home')">
+        <img class="logo-mark" src="logo-lgh.png" alt="LGH Dental Care" width="168" height="168">
+        <div class="logo-text">
+          <strong>LGH Dental Care</strong>
+          <!-- Подзаголовок: жирный красный через .logo-text span -->
+          <span>Стоматология в Стамбуле</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a data-page="home" onclick="showPage('home')">Главная</a>
+        <a data-page="about" onclick="showPage('about')">О нас</a>
+        <a data-page="istanbul" onclick="showPage('istanbul')">Почему Стамбул</a>
+        <a data-page="treatments" onclick="showPage('treatments')">Лечение</a>
+        <a data-page="route" onclick="showPage('route')">Маршрут</a>
+        <a data-page="safety" onclick="showPage('safety')">Безопасность</a>
+        <a data-page="prepare" onclick="showPage('prepare')">Подготовка</a>
+        <a data-page="aftercare" onclick="showPage('aftercare')">После лечения</a>
+        <a data-page="prices" onclick="showPage('prices')">Пакеты</a>
+        <a data-page="faq" onclick="showPage('faq')">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-btn" onclick="toggleMenu()">Меню</button>
+        <!-- Кнопка «Заявка»: ярко-красная 3D — стиль .header-actions .btn-primary -->
+        <button class="btn btn-primary" onclick="showPage('contacts')">Заявка</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+    <!-- ================= HOME PAGE ================= -->
+
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="container hero-layout">
+          <div>
+            <div class="badge">Безопасное стоматологическое сопровождение</div>
+
+            <h1>
+              Стоматология в <span>Стамбуле</span> без хаоса, страха и случайных решений
+            </h1>
+
+            <p class="hero-text">
+              Мы сопровождаем пациента от первой консультации до возвращения домой:
+              помогаем разобраться в плане лечения, подготовить документы, выбрать маршрут,
+              пройти клинику, не потеряться в чужой медицинской системе и получить понятные рекомендации после лечения.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" onclick="showPage('contacts')">Получить консультацию</button>
+              <button class="btn btn-light" onclick="showPage('route')">Как проходит поездка</button>
+            </div>
+
+            <div class="hero-mini-grid">
+              <div class="mini-card">
+                <strong>Не просто клиника</strong>
+                <span>Мы смотрим на процесс глазами пациента.</span>
+              </div>
+
+              <div class="mini-card">
+                <strong>Понятный маршрут</strong>
+                <span>До поездки, во время лечения и после возвращения.</span>
+              </div>
+
+              <div class="mini-card">
+                <strong>Безопаснее</strong>
+                <span>Меньше хаоса, непонимания и решений на эмоциях.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-board">
+            <h2>Мы берём пациента за руку и проводим через медицинский хаос</h2>
+
+            <p>
+              Пациенту важно не просто “сделать зубы”.
+              Ему важно понимать, куда он едет, зачем, к кому, за сколько,
+              какие риски есть и что будет после лечения.
+            </p>
+
+            <div class="route-list">
+              <div class="route-item">
+                <span>01</span>
+                <p>Разбираем ситуацию, снимки, жалобы и ожидания.</p>
+              </div>
+
+              <div class="route-item">
+                <span>02</span>
+                <p>Помогаем понять возможный план лечения и вопросы к врачу.</p>
+              </div>
+
+              <div class="route-item">
+                <span>03</span>
+                <p>Сопровождаем подготовку, поездку, клинику, перевод и быт.</p>
+              </div>
+
+              <div class="route-item">
+                <span>04</span>
+                <p>Помогаем после лечения: документы, рекомендации, связь с клиникой.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="container stats">
+          <div class="stat">
+            <strong>360°</strong>
+            <span>сопровождение пациента вокруг всей поездки</span>
+          </div>
+
+          <div class="stat">
+            <strong>до</strong>
+            <span>лечения: разбор, подготовка, маршрут</span>
+          </div>
+
+          <div class="stat">
+            <strong>во время</strong>
+            <span>клиника, перевод, связь, организационные вопросы</span>
+          </div>
+
+          <div class="stat">
+            <strong>после</strong>
+            <span>рекомендации, документы, возвращение домой</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="section section-soft">
+        <div class="container">
+          <div class="badge gold">Главная идея</div>
+
+          <h2 class="section-title">Медицинская поездка — это система, а не билет и запись к врачу</h2>
+
+          <p class="section-subtitle">
+            В стоматологическом туризме пациент часто видит только красивую рекламу:
+            “идеальная улыбка”, “быстро”, “дешевле”, “лучшие врачи”.
+            Но за этим стоит целый путь: диагностика, документы, план лечения, перелёт,
+            проживание, язык, оплата, гарантии, послеоперационный режим и связь после возвращения.
+          </p>
+
+          <div class="grid grid-3">
+            <div class="card">
+              <div class="icon">🦷</div>
+              <h3>Медицинская часть</h3>
+              <p>
+                Снимки, консультации, план лечения, импланты, коронки, виниры,
+                сроки, противопоказания и восстановление.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="icon">🧭</div>
+              <h3>Организационная часть</h3>
+              <p>
+                Даты, перелёт, проживание, трансфер, расписание визитов,
+                сопровождение и связь с клиникой.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="icon">🛡</div>
+              <h3>Защитная часть</h3>
+              <p>
+                Проверка условий, понимание договора, фиксация рекомендаций,
+                вопросы врачу и снижение риска хаоса.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="badge">Быстрый доступ</div>
+
+          <h2 class="section-title">Что вы можете изучить на сайте</h2>
+
+          <p class="section-subtitle">
+            Это не сайт “оставьте заявку и молитесь”. Здесь пациент может сначала разобраться.
+            Нормально, спокойно, без давления.
+          </p>
+
+          <div class="search-panel">
+            <label for="siteSearch">Поиск по сайту</label>
+            <div class="search-row">
+              <input id="siteSearch" type="text" placeholder="Например: имплантация, документы, гарантии, виниры, что взять с собой">
+              <button class="btn btn-primary" onclick="searchSite()">Найти</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+
+          <div class="grid grid-4">
+            <div class="card treatment-card" onclick="showPage('istanbul')">
+              <h3>Почему Стамбул</h3>
+              <p>Плюсы, ограничения, трезвый взгляд и кому это подходит.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('treatments')">
+              <h3>Виды лечения</h3>
+              <p>Имплантация, коронки, виниры, полное восстановление.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('route')">
+              <h3>Маршрут пациента</h3>
+              <p>От заявки и снимков до возвращения домой.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('safety')">
+              <h3>Безопасность</h3>
+              <p>Как не потеряться в чужой медицинской системе.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('prepare')">
+              <h3>Подготовка</h3>
+              <p>Что сделать до поездки, какие документы собрать.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('aftercare')">
+              <h3>После лечения</h3>
+              <p>Что важно после клиники и после возвращения домой.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('prices')">
+              <h3>Пакеты</h3>
+              <p>Форматы сопровождения под разные ситуации.</p>
+            </div>
+
+            <div class="card treatment-card" onclick="showPage('faq')">
+              <h3>FAQ</h3>
+              <p>Ответы на частые вопросы пациентов.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= ABOUT PAGE ================= -->
+
+    <section class="page" id="page-about">
+      <section class="section">
+        <div class="container article-layout">
+          <aside class="sidebar">
+            <div class="sidebar-title">Разделы</div>
+            <a onclick="scrollToBlock('about-main')">Кто мы</a>
+            <a onclick="scrollToBlock('about-difference')">Чем отличаемся</a>
+            <a onclick="scrollToBlock('about-not')">Чем мы не являемся</a>
+            <a onclick="scrollToBlock('about-values')">Наши принципы</a>
+            <a onclick="showPage('contacts')">Оставить заявку</a>
+          </aside>
+
+          <article class="content-box">
+            <h2 id="about-main">О нас</h2>
+
+            <p>
+              LGH Dental Care — это сервис сопровождения пациентов, которые рассматривают стоматологическое лечение в Стамбуле.
+              Мы не продаём человеку мечту “за два дня и без проблем”. Мы помогаем пройти путь трезво, безопаснее и понятнее.
+            </p>
+
+            <p>
+              Наша работа начинается не в аэропорту и не в клинике. Она начинается раньше:
+              с вопроса, что у пациента происходит, чего он боится, какие у него снимки,
+              какой опыт лечения был раньше и какой результат он хочет получить.
+            </p>
+
+            <div class="quote">
+              <strong>Суть:</strong> мы не просто “подбираем клинику”.
+              Мы сопровождаем человека через медицинскую систему, где много непонятного,
+              дорогого, эмоционального и потенциально рискованного.
+            </div>
+
+            <h2 id="about-difference">Чем мы отличаемся</h2>
+
+            <p>
+              Обычная схема медицинского туризма часто выглядит так:
+              человек видит рекламу, пишет в клинику, получает красивую цену,
+              покупает билет и едет. На месте выясняется, что план может измениться,
+              сумма может вырасти, сроки могут быть другими, а объяснения не всегда понятны.
+            </p>
+
+            <p>
+              Мы строим другой подход. Сначала — разбор. Потом — вопросы. Потом — маршрут.
+              И только после этого поездка.
+            </p>
+
+            <ul>
+              <li>Помогаем пациенту подготовиться до общения с клиникой.</li>
+              <li>Объясняем, какие вопросы нужно задать врачу.</li>
+              <li>Помогаем не соглашаться на всё автоматически.</li>
+              <li>Фиксируем важные детали: сроки, этапы, документы, рекомендации.</li>
+              <li>Поддерживаем пациента во время поездки и после возвращения.</li>
+            </ul>
+
+            <h2 id="about-not">Чем мы не являемся</h2>
+
+            <div class="warning">
+              Мы не являемся стоматологической клиникой, не ставим диагнозы,
+              не назначаем лечение и не заменяем врача.
+            </div>
+
+            <p>
+              Это важно сказать прямо. Медицинское решение принимает врач.
+              Наша роль — сопровождение, организация, перевод смысла с “медицинского языка”
+              на человеческий, помощь в подготовке и контроль понятности процесса.
+            </p>
+
+            <h2 id="about-values">Наши принципы</h2>
+
+            <ol>
+              <li><strong>Безопасность важнее скорости.</strong> Быстро — не всегда правильно.</li>
+              <li><strong>Пациент должен понимать, на что соглашается.</strong> Без тумана и давления.</li>
+              <li><strong>Дешевле — не всегда выгоднее.</strong> Исправлять ошибки часто дороже.</li>
+              <li><strong>Документы важны.</strong> Рекомендации, гарантии и план должны быть понятны.</li>
+              <li><strong>Сопровождение не заканчивается у двери клиники.</strong> После лечения тоже есть жизнь.</li>
+            </ol>
+
+            <div class="notice">
+              <strong>Нормальный пациент имеет право задавать вопросы.</strong>
+              Если где-то вас торопят, давят, не объясняют и раздражаются от уточнений —
+              это уже сигнал включить голову.
+            </div>
+
+            <button class="btn btn-primary" onclick="showPage('contacts')">Обсудить мою ситуацию</button>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= ISTANBUL PAGE ================= -->
+
+    <section class="page" id="page-istanbul">
+      <section class="section">
+        <div class="container article-layout">
+          <aside class="sidebar">
+            <div class="sidebar-title">Почему Стамбул</div>
+            <a onclick="scrollToBlock('istanbul-why')">Почему едут</a>
+            <a onclick="scrollToBlock('istanbul-plus')">Преимущества</a>
+            <a onclick="scrollToBlock('istanbul-risks')">Риски</a>
+            <a onclick="scrollToBlock('istanbul-for')">Кому подходит</a>
+            <a onclick="scrollToBlock('istanbul-not-for')">Кому не подходит</a>
+          </aside>
+
+          <article class="content-box">
+            <h2 id="istanbul-why">Почему пациенты выбирают Стамбул</h2>
+
+            <p>
+              Стамбул стал одним из популярных направлений для стоматологического лечения:
+              имплантация, коронки, виниры, эстетическая стоматология, комплексное восстановление зубов.
+              Причины понятны: большой медицинский рынок, опыт работы с иностранными пациентами,
+              развитая инфраструктура, международная логистика.
+            </p>
+
+            <p>
+              Но популярность направления не означает, что любая клиника автоматически хорошая,
+              а любая поездка будет безопасной. Вот тут и начинается взрослая часть разговора.
+            </p>
+
+            <h2 id="istanbul-plus">Преимущества лечения в Стамбуле</h2>
+
+            <ul>
+              <li><strong>Большой выбор клиник.</strong> Есть клиники разного уровня, специализации и подхода.</li>
+              <li><strong>Опыт с иностранными пациентами.</strong> Многие клиники привыкли работать с пациентами из других стран.</li>
+              <li><strong>Комплексные решения.</strong> Можно совместить диагностику, планирование и лечение в одной поездке.</li>
+              <li><strong>Логистика.</strong> В Стамбул удобно лететь из разных стран.</li>
+              <li><strong>Сервис.</strong> Некоторые клиники предлагают трансфер, переводчика и организационную поддержку.</li>
+            </ul>
+
+            <div class="notice">
+              <strong>Но:</strong> сервис клиники и защита интересов пациента — не одно и то же.
+              Клиника организует лечение внутри своей системы. Сопровождение смотрит шире:
+              насколько пациент всё понял, согласен ли он осознанно, не потерялись ли важные детали.
+            </div>
+
+            <h2 id="istanbul-risks">Риски стоматологической поездки</h2>
+
+            <p>
+              Самые частые риски возникают не потому, что “все плохие”.
+              А потому что пациент едет неподготовленным.
+            </p>
+
+            <ul>
+              <li>Нет свежих снимков или их неправильно интерпретировали.</li>
+              <li>Пациент не понимает разницу между имплантом, абатментом, коронкой, временной и постоянной конструкцией.</li>
+              <li>Обещают быстро, но не объясняют ограничения.</li>
+              <li>Цена “до поездки” и цена “после очного осмотра” отличаются.</li>
+              <li>Пациент не знает, какие документы должен получить.</li>
+              <li>После возвращения домой непонятно, что делать при боли, воспалении или дискомфорте.</li>
+            </ul>
+
+            <h2 id="istanbul-for">Кому может подойти Стамбул</h2>
+
+            <p>
+              Направление может быть интересно тем, кто рассматривает:
+            </p>
+
+            <ul>
+              <li>имплантацию одного или нескольких зубов;</li>
+              <li>полное восстановление зубов;</li>
+              <li>коронки;</li>
+              <li>виниры;</li>
+              <li>переделку неудачного лечения;</li>
+              <li>комплексный эстетический результат.</li>
+            </ul>
+
+            <h2 id="istanbul-not-for">Кому лучше не спешить</h2>
+
+            <p>
+              Поездку лучше отложить, если:
+            </p>
+
+            <ul>
+              <li>нет понимания диагноза;</li>
+              <li>нет снимков;</li>
+              <li>есть острое воспаление, но нет очной консультации;</li>
+              <li>пациент выбирает только по самой низкой цене;</li>
+              <li>есть серьёзные хронические заболевания, но они не обсуждались с врачом;</li>
+              <li>человек ждёт “идеальный результат за два дня” без анализа ситуации.</li>
+            </ul>
+
+            <div class="quote">
+              Стамбул может быть хорошим решением. Но только если поездка подготовлена.
+              Иначе это не медицинский туризм, а квест “угадай, что будет дальше”.
+            </div>
+
+            <button class="btn btn-primary" onclick="showPage('contacts')">Понять, подходит ли мне Стамбул</button>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= TREATMENTS PAGE ================= -->
+
+    <section class="page" id="page-treatments">
+      <section class="section">
+        <div class="container">
+          <div class="badge">Виды лечения</div>
+
+          <h1 class="section-title">Какие стоматологические услуги чаще всего рассматривают в Стамбуле</h1>
+
+          <p class="section-subtitle">
+            Здесь не медицинское назначение, а понятный обзор для пациента.
+            Точный план лечения может составить только врач после диагностики.
+          </p>
+
+          <div class="grid grid-3">
+            <div class="card treatment-card" onclick="openTreatment('implantation')">
+              <div class="icon">🦷</div>
+              <h3>Имплантация</h3>
+              <p>
+                Восстановление отсутствующих зубов с помощью имплантов и последующего протезирования.
+              </p>
+              <div class="treatment-meta">
+                <span class="tag">импланты</span>
+                <span class="tag">хирургия</span>
+                <span class="tag">коронки</span>
+              </div>
+            </div>
+
+            <div class="card treatment-card" onclick="openTreatment('crowns')">
+              <div class="icon">👑</div>
+              <h3>Коронки</h3>
+              <p>
+                Восстановление формы, функции и эстетики зуба с помощью ортопедической конструкции.
+              </p>
+              <div class="treatment-meta">
+                <span class="tag">эстетика</span>
+                <span class="tag">жевание</span>
+                <span class="tag">прочность</span>
+              </div>
+            </div>
+
+            <div class="card treatment-card" onclick="openTreatment('veneers')">
+              <div class="icon">✨</div>
+              <h3>Виниры</h3>
+              <p>
+                Эстетическое решение для изменения формы, цвета и визуального вида зоны улыбки.
+              </p>
+              <div class="treatment-meta">
+                <span class="tag">улыбка</span>
+                <span class="tag">эстетика</span>
+                <span class="tag">форма</span>
+              </div>
+            </div>
+
+            <div class="card treatment-card" onclick="openTreatment('full')">
+              <div class="icon">🧩</div>
+              <h3>Полное восстановление</h3>
+              <p>
+                Комплексный план при множественных проблемах: отсутствие зубов, старые конструкции, боль, эстетика.
+              </p>
+              <div class="treatment-meta">
+                <span class="tag">комплекс</span>
+                <span class="tag">этапы</span>
+                <span class="tag">план</span>
+              </div>
+            </div>
+
+            <div class="card treatment-card" onclick="openTreatment('redo')">
+              <div class="icon">🔁</div>
+              <h3>Переделка лечения</h3>
+              <p>
+                Ситуации, когда прошлое лечение не устраивает, вызывает боль или требует пересмотра.
+              </p>
+              <div class="treatment-meta">
+                <span class="tag">ошибки</span>
+                <span class="tag">повторно</span>
+                <span class="tag">контроль</span>
+              </div>
+            </div>
+
+            <div class="card treatment-card" onclick="openTreatment('diagnostics')">
+              <div class="icon">📋</div>
+              <h3>Диагностика и второе мнение</h3>
+              <p>
+                Подходит, если пациент не уверен в предложенном плане или хочет понять ситуацию глубже.
+              </p>
+              <div class="treatment-meta">
+                <span class="tag">снимки</span>
+                <span class="tag">план</span>
+                <span class="tag">вопросы</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-box" id="treatmentDetails" style="margin-top: 32px;">
+            <h2>Выберите вид лечения выше</h2>
+            <p>
+              Нажмите на карточку, и здесь появится подробная информация:
+              что это такое, какие вопросы задать клинике, какие риски уточнить и какие документы запросить.
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= ROUTE PAGE ================= -->
+
+    <section class="page" id="page-route">
+      <section class="section">
+        <div class="container">
+          <div class="badge">Маршрут пациента</div>
+
+          <h1 class="section-title">Как проходит сопровождение: от первого сообщения до возвращения домой</h1>
+
+          <p class="section-subtitle">
+            Это главная логика сайта. Пациент должен увидеть не рекламный лозунг,
+            а понятный путь. Так доверие появляется намного быстрее.
+          </p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-number">1</div>
+              <div>
+                <h3>Первичное обращение</h3>
+                <p>
+                  Пациент пишет нам и кратко описывает ситуацию: что беспокоит,
+                  какое лечение рассматривает, есть ли снимки, был ли негативный опыт раньше,
+                  когда планирует поездку и какой результат хочет получить.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">2</div>
+              <div>
+                <h3>Сбор информации</h3>
+                <p>
+                  Мы просим подготовить снимки, фото, предыдущие планы лечения,
+                  выписки, список жалоб и вопросов. Чем больше ясности на старте,
+                  тем меньше хаоса потом.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">3</div>
+              <div>
+                <h3>Предварительный разбор</h3>
+                <p>
+                  Помогаем пациенту понять, какие направления лечения могут обсуждаться,
+                  какие вопросы задать врачу и на какие пункты обратить внимание до поездки.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">4</div>
+              <div>
+                <h3>Коммуникация с клиникой</h3>
+                <p>
+                  Помогаем уточнить предварительный план, сроки, этапы, стоимость,
+                  используемые материалы, гарантии, необходимость повторного визита
+                  и возможные изменения после очного осмотра.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">5</div>
+              <div>
+                <h3>План поездки</h3>
+                <p>
+                  Помогаем выстроить логистику: даты, прилёт, проживание,
+                  трансфер, визиты в клинику, свободное время, резервные дни,
+                  связь и бытовые вопросы.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">6</div>
+              <div>
+                <h3>Сопровождение в Стамбуле</h3>
+                <p>
+                  На месте пациенту важно не теряться. Мы помогаем с коммуникацией,
+                  переводом смысла, уточнениями, организационными вопросами
+                  и спокойным прохождением этапов лечения.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">7</div>
+              <div>
+                <h3>Документы и рекомендации</h3>
+                <p>
+                  После лечения важно получить рекомендации, гарантийные условия,
+                  назначения, информацию по уходу и понимание, что делать после возвращения домой.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-number">8</div>
+              <div>
+                <h3>Возвращение домой</h3>
+                <p>
+                  Сопровождение не заканчивается в аэропорту.
+                  После возвращения могут возникнуть вопросы по ощущениям,
+                  уходу, ограничениям или связи с клиникой. Мы помогаем не оставаться в пустоте.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote">
+            Хорошая медицинская поездка — это не когда “повезло”.
+            Хорошая поездка — это когда всё заранее продумано, объяснено и зафиксировано.
+          </div>
+
+          <button class="btn btn-primary" onclick="showPage('contacts')">Хочу пройти маршрут безопасно</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= SAFETY PAGE ================= -->
+
+    <section class="page" id="page-safety">
+      <section class="section">
+        <div class="container article-layout">
+          <aside class="sidebar">
+            <div class="sidebar-title">Безопасность</div>
+            <a onclick="scrollToBlock('safety-main')">Что такое безопасность</a>
+            <a onclick="scrollToBlock('safety-check')">Что проверять</a>
+            <a onclick="scrollToBlock('safety-questions')">Вопросы врачу</a>
+            <a onclick="scrollToBlock('safety-redflags')">Красные флаги</a>
+          </aside>
+
+          <article class="content-box">
+            <h2 id="safety-main">Безопасность — это не обещание, а система действий</h2>
+
+            <p>
+              В стоматологической поездке безопасность складывается из десятков мелочей:
+              диагностика, план, честная коммуникация, документы, сроки, условия оплаты,
+              понимание рисков, гарантий и послеоперационного режима.
+            </p>
+
+            <p>
+              Пациенту часто кажется, что главное — найти “лучшую клинику”.
+              Но реальность жёстче: даже хорошая клиника не отменяет необходимость
+              задавать вопросы и понимать, что происходит.
+            </p>
+
+            <h2 id="safety-check">Что важно проверять до поездки</h2>
+
+            <ul>
+              <li>Есть ли у пациента свежая диагностика: КТ, панорамный снимок, фото.</li>
+              <li>Понятно ли, какие этапы лечения будут проходить.</li>
+              <li>Что входит в цену, а что оплачивается отдельно.</li>
+              <li>Может ли цена измениться после очного осмотра.</li>
+              <li>Какие материалы и бренды используются.</li>
+              <li>Сколько визитов потребуется.</li>
+              <li>Нужен ли второй приезд.</li>
+              <li>Какие документы пациент получит после лечения.</li>
+              <li>Как действовать, если после возвращения появилась боль или дискомфорт.</li>
+            </ul>
+
+            <h2 id="safety-questions">Вопросы, которые стоит задать клинике</h2>
+
+            <ol>
+              <li>Что именно входит в предложенную стоимость?</li>
+              <li>Какие этапы лечения планируются?</li>
+              <li>Какие возможны изменения после очного осмотра?</li>
+              <li>Какие импланты, коронки или материалы используются?</li>
+              <li>Какие гарантии предоставляются и на каких условиях?</li>
+              <li>Что делать, если проблема появится уже дома?</li>
+              <li>Какие документы я получу после лечения?</li>
+              <li>Есть ли ограничения после процедуры?</li>
+              <li>Какой срок восстановления?</li>
+              <li>Будет ли переводчик или русскоязычный координатор?</li>
+            </ol>
+
+            <h2 id="safety-redflags">Красные флаги</h2>
+
+            <div class="warning">
+              Если вам обещают идеальный результат без диагностики,
+              торопят с оплатой, не отвечают на вопросы или раздражаются от уточнений —
+              это повод остановиться и не лететь на эмоциях.
+            </div>
+
+            <ul>
+              <li>Слишком низкая цена без объяснения состава лечения.</li>
+              <li>Обещание “всё сделать за один день” без анализа ситуации.</li>
+              <li>Нет письменного плана.</li>
+              <li>Не объясняют материалы и этапы.</li>
+              <li>Не дают понять, что будет после возвращения домой.</li>
+              <li>Все ответы звучат как реклама, а не как медицинское объяснение.</li>
+            </ul>
+
+            <div class="notice">
+              Нормальная клиника не боится вопросов. Нормальный сопровождающий тоже.
+              Чем яснее процесс до поездки, тем спокойнее пациенту на месте.
+            </div>
+
+            <button class="btn btn-primary" onclick="showPage('contacts')">Проверить мой маршрут</button>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= PREPARE PAGE ================= -->
+
+    <section class="page" id="page-prepare">
+      <section class="section">
+        <div class="container article-layout">
+          <aside class="sidebar">
+            <div class="sidebar-title">Подготовка</div>
+            <a onclick="scrollToBlock('prepare-start')">С чего начать</a>
+            <a onclick="scrollToBlock('prepare-docs')">Документы</a>
+            <a onclick="scrollToBlock('prepare-medical')">Медицина</a>
+            <a onclick="scrollToBlock('prepare-trip')">Поездка</a>
+            <a onclick="scrollToBlock('prepare-list')">Чек-лист</a>
+          </aside>
+
+          <article class="content-box">
+            <h2 id="prepare-start">Как подготовиться к лечению зубов в Стамбуле</h2>
+
+            <p>
+              Подготовка — это половина безопасности. Самая плохая стратегия:
+              “сейчас прилечу, там разберёмся”. В стоматологии так можно попасть
+              на лишние расходы, стресс и решения, которые потом сложно откатить.
+            </p>
+
+            <h2 id="prepare-docs">Какие документы и данные подготовить</h2>
+
+            <ul>
+              <li>Панорамный снимок.</li>
+              <li>КТ, если есть.</li>
+              <li>Фото улыбки и зубов.</li>
+              <li>Старые планы лечения, если были.</li>
+              <li>Список жалоб: боль, подвижность, воспаление, эстетика, неудобство.</li>
+              <li>Информация об аллергиях.</li>
+              <li>Информация о хронических заболеваниях.</li>
+              <li>Список лекарств, которые вы принимаете.</li>
+            </ul>
+
+            <h2 id="prepare-medical">Медицинская подготовка</h2>
+
+            <p>
+              Если планируется хирургия, имплантация или серьёзное вмешательство,
+              важно заранее обсудить состояние здоровья. Не надо героизма.
+              Зубы — зубами, но организм один, запасного в чемодан не положишь.
+            </p>
+
+            <ul>
+              <li>Сообщите врачу о хронических заболеваниях.</li>
+              <li>Сообщите о приёме препаратов.</li>
+              <li>Не скрывайте аллергии.</li>
+              <li>Уточните, нужны ли анализы.</li>
+              <li>Уточните, можно ли лететь сразу после процедуры.</li>
+            </ul>
+
+            <h2 id="prepare-trip">Организационная подготовка</h2>
+
+            <ul>
+              <li>Планируйте резервные дни.</li>
+              <li>Не ставьте важные дела сразу после возвращения.</li>
+              <li>Уточните расстояние от отеля до клиники.</li>
+              <li>Заранее сохраните адреса, телефоны и контакты.</li>
+              <li>Проверьте интернет, роуминг, мессенджеры.</li>
+              <li>Подготовьте удобную одежду и аптечку по согласованию с врачом.</li>
+            </ul>
+
+            <h2 id="prepare-list">Чек-лист перед поездкой</h2>
+
+            <div class="notice">
+              Перед вылетом у пациента должно быть не “кажется, всё понятно”,
+              а конкретный список: куда еду, кто встречает, когда клиника,
+              что будут делать, сколько стоит, что входит, какие документы получу.
+            </div>
+
+            <ol>
+              <li>Есть снимки.</li>
+              <li>Есть предварительный план.</li>
+              <li>Понятна стоимость и что в неё входит.</li>
+              <li>Понятны сроки.</li>
+              <li>Понятно, нужен ли второй визит.</li>
+              <li>Есть адрес клиники.</li>
+              <li>Есть контакты координатора.</li>
+              <li>Есть план проживания.</li>
+              <li>Есть резервные дни.</li>
+              <li>Есть понимание, что делать после лечения.</li>
+            </ol>
+
+            <button class="btn btn-primary" onclick="showPage('contacts')">Помочь мне подготовиться</button>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= AFTERCARE PAGE ================= -->
+
+    <section class="page" id="page-aftercare">
+      <section class="section">
+        <div class="container article-layout">
+          <aside class="sidebar">
+            <div class="sidebar-title">После лечения</div>
+            <a onclick="scrollToBlock('after-main')">Почему это важно</a>
+            <a onclick="scrollToBlock('after-docs')">Документы</a>
+            <a onclick="scrollToBlock('after-home')">Дома</a>
+            <a onclick="scrollToBlock('after-clinic')">Связь с клиникой</a>
+          </aside>
+
+          <article class="content-box">
+            <h2 id="after-main">После лечения путь не заканчивается</h2>
+
+            <p>
+              Одна из частых ошибок — думать, что всё завершилось в момент,
+              когда пациент вышел из клиники. На самом деле после стоматологического лечения
+              начинается период адаптации, восстановления, ухода и наблюдения.
+            </p>
+
+            <p>
+              Особенно это важно после имплантации, удаления зубов, установки временных конструкций,
+              коронок, виниров или комплексного восстановления.
+            </p>
+
+            <h2 id="after-docs">Что пациент должен получить</h2>
+
+            <ul>
+              <li>Письменные рекомендации.</li>
+              <li>Информацию об установленных материалах.</li>
+              <li>Гарантийные условия.</li>
+              <li>Назначения, если они есть.</li>
+              <li>План дальнейших визитов, если лечение не завершено.</li>
+              <li>Контакты для связи при вопросах.</li>
+            </ul>
+
+            <h2 id="after-home">Что важно после возвращения домой</h2>
+
+            <ul>
+              <li>Соблюдать рекомендации врача.</li>
+              <li>Не игнорировать боль, отёк, воспаление или подвижность конструкции.</li>
+              <li>Не заниматься самолечением.</li>
+              <li>Сохранять все документы и переписку.</li>
+              <li>При необходимости обращаться к местному врачу для очного контроля.</li>
+              <li>Поддерживать связь с клиникой, где проходило лечение.</li>
+            </ul>
+
+            <h2 id="after-clinic">Зачем сопровождение после возвращения</h2>
+
+            <p>
+              После возвращения пациент может столкнуться с вопросами:
+              нормально ли это ощущение, когда можно есть, что делать с временной конструкцией,
+              как ухаживать, нужно ли писать в клинику, как описать проблему.
+            </p>
+
+            <p>
+              Мы помогаем не паниковать и не теряться, а действовать по нормальному алгоритму:
+              собрать информацию, описать симптомы, связаться с клиникой,
+              понять дальнейший шаг.
+            </p>
+
+            <div class="quote">
+              Сильный сервис — это не только встретить пациента в аэропорту.
+              Сильный сервис — это не бросить человека после того, как он улетел домой.
+            </div>
+
+            <button class="btn btn-primary" onclick="showPage('contacts')">Нужна поддержка после лечения</button>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= PRICES PAGE ================= -->
+
+    <section class="page" id="page-prices">
+      <section class="section">
+        <div class="container">
+          <div class="badge">Форматы работы</div>
+
+          <h1 class="section-title">Пакеты сопровождения</h1>
+
+          <p class="section-subtitle">
+            Цены ниже можно заменить на свои. Сейчас это структура,
+            чтобы пациент понимал: есть разные уровни помощи — от консультации до полного маршрута.
+          </p>
+
+          <div class="grid grid-3">
+            <div class="card price-card">
+              <h3>Разбор ситуации</h3>
+              <p>Для тех, кто только думает о лечении в Стамбуле.</p>
+
+              <div class="price">от 0 ₽</div>
+              <div class="price-note">стартовый формат</div>
+
+              <ul>
+                <li>Первичная консультация</li>
+                <li>Разбор жалоб и целей</li>
+                <li>Список вопросов к клинике</li>
+                <li>Объяснение возможного маршрута</li>
+                <li>Рекомендации по подготовке</li>
+              </ul>
+
+              <button class="btn btn-light" onclick="showPage('contacts')">Оставить заявку</button>
+            </div>
+
+            <div class="card price-card featured">
+              <span class="price-label">Оптимально</span>
+
+              <h3>Сопровождение поездки</h3>
+              <p>Для пациента, который хочет ехать спокойно и понятно.</p>
+
+              <div class="price">индивидуально</div>
+              <div class="price-note">стоимость зависит от задачи</div>
+
+              <ul>
+                <li>Разбор документов и снимков</li>
+                <li>Коммуникация с клиникой</li>
+                <li>Помощь с маршрутом поездки</li>
+                <li>Поддержка во время лечения</li>
+                <li>Помощь с переводом смысла</li>
+                <li>Контроль рекомендаций после лечения</li>
+              </ul>
+
+              <button class="btn btn-primary" onclick="showPage('contacts')">Хочу сопровождение</button>
+            </div>
+
+            <div class="card price-card">
+              <h3>Полный маршрут</h3>
+              <p>Для сложных случаев и комплексного восстановления зубов.</p>
+
+              <div class="price">по запросу</div>
+              <div class="price-note">для сложных задач</div>
+
+              <ul>
+                <li>Глубокий разбор ситуации</li>
+                <li>Сравнение вариантов</li>
+                <li>Подготовка поездки</li>
+                <!-- Пакет «Полный маршрут»: уточнение — сопровождение личное, на месте в Стамбуле -->
+                <li>Личное сопровождение в Стамбуле</li>
+                <li>Документы и рекомендации</li>
+                <li>Связь после возвращения</li>
+              </ul>
+
+              <button class="btn btn-light" onclick="showPage('contacts')">Обсудить задачу</button>
+            </div>
+          </div>
+
+          <div class="content-box" style="margin-top: 32px;">
+            <h2>Почему нет одной цены для всех</h2>
+
+            <p>
+              Потому что стоматологическая поездка бывает разной.
+              Один пациент хочет просто понять, стоит ли ехать.
+              Другой планирует имплантацию.
+              Третий едет на полное восстановление зубов.
+              Четвёртый уже пострадал от неудачного лечения и боится снова ошибиться.
+            </p>
+
+            <p>
+              Поэтому нормальная цена сопровождения зависит от объёма работы:
+              сколько документов, сколько коммуникации, нужна ли поддержка на месте,
+              есть ли сложная медицинская история, требуется ли помощь после возвращения.
+            </p>
+
+            <div class="rule">
+              Лучше честно рассчитать сопровождение под ситуацию,
+              чем продавать всем один красивый пакет, который потом не покрывает реальную задачу.
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= FAQ PAGE ================= -->
+
+    <section class="page" id="page-faq">
+      <section class="section">
+        <div class="container">
+          <div class="badge">FAQ</div>
+
+          <h1 class="section-title">Частые вопросы пациентов</h1>
+
+          <p class="section-subtitle">
+            Раздел нужен, чтобы закрыть страхи и возражения до заявки.
+            Чем больше ясности — тем меньше случайных людей и пустых переписок.
+          </p>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Вы стоматологическая клиника?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Нет. Мы не стоматологическая клиника. Мы сервис сопровождения пациента.
+                Диагнозы ставит врач, лечение назначает врач, медицинскую ответственность несёт клиника.
+                Наша задача — помочь пациенту пройти путь понятнее и безопаснее.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Вы гарантируете результат лечения?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Медицинский результат может гарантировать только клиника в рамках своих условий,
+                документов и медицинского плана. Мы не обещаем чудес.
+                Мы помогаем пациенту лучше подготовиться, понимать процесс и задавать правильные вопросы.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Зачем сопровождение, если клиника сама всё организует?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Клиника организует лечение внутри своей системы.
+                Но пациенту часто нужен человек, который смотрит на ситуацию со стороны пациента:
+                всё ли понятно, какие вопросы не заданы, что будет после лечения,
+                какие документы нужно получить.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Можно ли сначала просто поговорить?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Да. Первый шаг — консультация и разбор ситуации.
+                Не каждый человек готов сразу ехать, и это нормально.
+                Сначала нужно понять задачу, риски, сроки и возможный маршрут.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Какие документы нужны перед поездкой?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Обычно нужны снимки, КТ при необходимости, фото зубов,
+                старые планы лечения, информация о заболеваниях, аллергиях и препаратах.
+                Точный список зависит от ситуации.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Можно ли ехать без снимков?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Технически можно, но это плохая идея. Без снимков невозможно нормально обсудить план.
+                Поездка “наугад” повышает риск неожиданностей, изменения цены и стресса.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Подходит ли сопровождение для виниров?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                Да. Виниры — это не просто “красивая улыбка”.
+                Важно понимать подготовку зубов, форму, цвет, материал, примерки,
+                риски, уход и ожидания пациента.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                Что если после возвращения домой возникнут вопросы?
+                <span class="plus">+</span>
+              </div>
+              <div class="faq-answer">
+                В хорошем маршруте этот вопрос продуман заранее.
+                Нужно понимать, куда писать, какие фото или симптомы отправить,
+                когда ждать ответа клиники и когда обращаться к врачу очно.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= CONTACTS PAGE ================= -->
+
+    <section class="page" id="page-contacts">
+      <section class="section section-dark">
+        <div class="container">
+          <div class="badge gold">Заявка</div>
+
+          <h1 class="section-title">Опишите вашу ситуацию</h1>
+
+          <p class="section-subtitle">
+            Напишите, что вас беспокоит, какое лечение рассматриваете,
+            есть ли снимки и когда вы думаете о поездке.
+            Мы свяжемся с вами и подскажем, с чего начать.
+          </p>
+
+          <div class="contact-layout">
+            <div class="contact-card">
+              <h3>Контакты</h3>
+
+              <p>
+                Напишите нам удобным способом — ответим и подскажем, с чего начать.
+              </p>
+
+              <p>
+                Telegram:
+                <br>
+                <a href="https://t.me/S_Lait" target="_blank" rel="noopener">@S_Lait</a>
+              </p>
+
+              <p>
+                MAX:
+                <br>
+                <a href="tel:+9034576854">+903 457 6854</a>
+              </p>
+
+              <p>
+                WhatsApp:
+                <br>
+                <a href="https://wa.me/79585466084" target="_blank" rel="noopener">+79585466084</a>
+              </p>
+
+              <p>
+                <strong>Важно:</strong>
+                мы не заменяем врача и не ставим диагнозы.
+                Мы сопровождаем пациента в процессе подготовки, поездки и коммуникации.
+              </p>
+            </div>
+
+            <form id="leadForm">
+              <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input id="name" type="text" placeholder="Например: Анна" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact">Телефон, Telegram, MAX или WhatsApp</label>
+                <input id="contact" type="text" placeholder="@username или номер телефона" required>
+              </div>
+
+              <div class="form-group">
+                <label for="treatmentType">Что вас интересует?</label>
+                <select id="treatmentType" required>
+                  <option value="">Выберите вариант</option>
+                  <option>Имплантация</option>
+                  <option>Коронки</option>
+                  <option>Виниры</option>
+                  <option>Полное восстановление зубов</option>
+                  <option>Переделка после неудачного лечения</option>
+                  <option>Пока не знаю, нужна консультация</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="hasImages">Есть ли снимки или КТ?</label>
+                <select id="hasImages" required>
+                  <option value="">Выберите вариант</option>
+                  <option>Да, есть</option>
+                  <option>Нет</option>
+                  <option>Планирую сделать</option>
+                  <option>Не знаю, что нужно</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="travelDate">Когда планируете поездку?</label>
+                <select id="travelDate" required>
+                  <option value="">Выберите вариант</option>
+                  <option>В ближайший месяц</option>
+                  <option>Через 2–3 месяца</option>
+                  <option>Позже</option>
+                  <option>Пока только изучаю информацию</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Опишите ситуацию</label>
+                <textarea id="message" placeholder="Что беспокоит? Было ли лечение раньше? Чего вы боитесь? Какой результат хотите?"></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Отправить заявку</button>
+
+              <div class="form-message" id="formMessage">
+                Заявка сохранена в браузере. Для реальной отправки нужно подключить Telegram, EmailJS, Google Sheets или CRM.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>LGH Dental Care</strong>
+        <p>
+          Сопровождение пациентов, которые планируют стоматологическое лечение в Стамбуле.
+          Без хаоса, без слепого доверия рекламе, без ощущения “я один в чужой стране”.
+        </p>
+      </div>
+
+      <div>
+        <strong>Разделы</strong>
+        <a onclick="showPage('about')">О нас</a>
+        <a onclick="showPage('istanbul')">Почему Стамбул</a>
+        <a onclick="showPage('treatments')">Виды лечения</a>
+        <a onclick="showPage('route')">Маршрут пациента</a>
+      </div>
+
+      <div>
+        <strong>Пациенту</strong>
+        <a onclick="showPage('safety')">Безопасность</a>
+        <a onclick="showPage('prepare')">Подготовка</a>
+        <a onclick="showPage('aftercare')">После лечения</a>
+        <a onclick="showPage('contacts')">Оставить заявку</a>
+      </div>
+      <div>
+        <strong>Связь</strong>
+        <a href="https://t.me/S_Lait" target="_blank" rel="noopener">Telegram @S_Lait</a>
+        <a href="tel:+9034576854">MAX +903 457 6854</a>
+        <a href="https://wa.me/79585466084" target="_blank" rel="noopener">WhatsApp +79585466084</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Кнопка переключения светлой / тёмной темы -->
+  <button
+    class="theme-toggle"
+    id="themeToggle"
+    type="button"
+    aria-label="Включить тёмную тему"
+    title="Переключить тему"
+  >
+    <span id="themeToggleIcon" aria-hidden="true">🌙</span>
+  </button>
+
+  <script>
+    /*
+      ==========================================================
+      JAVASCRIPT ЛОГИКА САЙТА
+      ==========================================================
+
+      Что делает этот код:
+      1. Переключает страницы.
+      2. Меняет активный пункт меню.
+      3. Работает с адресом через hash.
+      4. Открывает FAQ.
+      5. Показывает подробности по видам лечения.
+      6. Ищет по страницам сайта.
+      7. Сохраняет заявку в localStorage.
+      8. Переключает светлую и тёмную тему оформления.
+
+      Важно:
+      Форма заявки сейчас НЕ отправляет данные вам в Telegram.
+      Она сохраняет заявку в браузере для демонстрации.
+      Чтобы заявки приходили вам:
+      - подключите Telegram Bot API;
+      - или EmailJS;
+      - или Formspree;
+      - или Google Sheets;
+      - или CRM.
+      ==========================================================
+    */
+
+    /*
+      ==========================================================
+      ТЕМА ОФОРМЛЕНИЯ
+      Светлая и тёмная фиолетово-графитовая палитра.
+      Выбор сохраняется в localStorage (ключ lghDentalTheme).
+      ==========================================================
+    */
+
+    (function initThemeToggle() {
+      const STORAGE_KEY = "lghDentalTheme";
+      const html = document.documentElement;
+      const toggleBtn = document.getElementById("themeToggle");
+      const toggleIcon = document.getElementById("themeToggleIcon");
+
+      function applyTheme(theme) {
+        html.setAttribute("data-theme", theme);
+
+        if (toggleIcon) {
+          toggleIcon.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        if (toggleBtn) {
+          const label = theme === "dark"
+            ? "Включить светлую тему"
+            : "Включить тёмную тему";
+          toggleBtn.setAttribute("aria-label", label);
+          toggleBtn.title = "Переключить тему";
+        }
+      }
+
+      const savedTheme = localStorage.getItem(STORAGE_KEY);
+      const initialTheme = savedTheme === "dark" || savedTheme === "light"
+        ? savedTheme
+        : "light";
+
+      applyTheme(initialTheme);
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", function() {
+          const nextTheme = html.getAttribute("data-theme") === "dark"
+            ? "light"
+            : "dark";
+          applyTheme(nextTheme);
+          localStorage.setItem(STORAGE_KEY, nextTheme);
+        });
+      }
+    })();
+
+    const pages = [
+      "home",
+      "about",
+      "istanbul",
+      "treatments",
+      "route",
+      "safety",
+      "prepare",
+      "aftercare",
+      "prices",
+      "faq",
+      "contacts"
+    ];
+
+    const pageTitles = {
+      home: "Главная",
+      about: "О нас",
+      istanbul: "Почему Стамбул",
+      treatments: "Виды лечения",
+      route: "Маршрут пациента",
+      safety: "Безопасность",
+      prepare: "Подготовка",
+      aftercare: "После лечения",
+      prices: "Пакеты сопровождения",
+      faq: "FAQ",
+      contacts: "Заявка"
+    };
+
+    function showPage(pageName) {
+      if (!pages.includes(pageName)) {
+        pageName = "home";
+      }
+
+      pages.forEach(function(page) {
+        const section = document.getElementById("page-" + page);
+        if (section) {
+          section.classList.remove("active");
+        }
+      });
+
+      const activePage = document.getElementById("page-" + pageName);
+      if (activePage) {
+        activePage.classList.add("active");
+      }
+
+      const navLinks = document.querySelectorAll(".nav a");
+      navLinks.forEach(function(link) {
+        link.classList.remove("active-link");
+
+        if (link.dataset.page === pageName) {
+          link.classList.add("active-link");
+        }
+      });
+
+      const nav = document.getElementById("mainNav");
+      nav.classList.remove("active");
+
+      window.location.hash = pageName;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      document.title = pageTitles[pageName] + " | Стоматология в Стамбуле";
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById("mainNav");
+      nav.classList.toggle("active");
+    }
+
+    function toggleFaq(element) {
+      const item = element.parentElement;
+      item.classList.toggle("active");
+    }
+
+    function scrollToBlock(id) {
+      const block = document.getElementById(id);
+
+      if (block) {
+        block.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+
+    window.addEventListener("load", function() {
+      const hash = window.location.hash.replace("#", "");
+
+      if (hash && pages.includes(hash)) {
+        showPage(hash);
+      } else {
+        showPage("home");
+      }
+    });
+
+    /*
+      ==========================================================
+      ПОДРОБНОСТИ ПО ВИДАМ ЛЕЧЕНИЯ
+      ==========================================================
+    */
+
+    const treatmentInfo = {
+      implantation: {
+        title: "Имплантация зубов",
+        text: `
+          <p>
+            Имплантация — это восстановление отсутствующих зубов с помощью искусственного корня,
+            который устанавливается в кость. После приживления на него фиксируется коронка
+            или другая ортопедическая конструкция.
+          </p>
+
+          <h3>Что важно уточнить</h3>
+          <ul>
+            <li>Нужна ли костная пластика?</li>
+            <li>Какой бренд имплантов используется?</li>
+            <li>Сколько этапов потребуется?</li>
+            <li>Когда устанавливается временная конструкция?</li>
+            <li>Нужен ли второй визит?</li>
+            <li>Что входит в гарантию?</li>
+          </ul>
+
+          <div class="notice">
+            Имплантация редко бывает историей “прилетел и за один день всё решил”.
+            Иногда это возможно, но только после диагностики и оценки состояния кости.
+          </div>
+        `
+      },
+
+      crowns: {
+        title: "Коронки",
+        text: `
+          <p>
+            Коронка — это ортопедическая конструкция, которая восстанавливает форму,
+            функцию и внешний вид зуба. Коронки могут устанавливаться на свои зубы
+            или на импланты.
+          </p>
+
+          <h3>Что важно уточнить</h3>
+          <ul>
+            <li>Из какого материала будет коронка?</li>
+            <li>Нужно ли лечение каналов?</li>
+            <li>Какой срок изготовления?</li>
+            <li>Будут ли временные коронки?</li>
+            <li>Как подбирается цвет и форма?</li>
+          </ul>
+
+          <div class="notice">
+            Коронка — это не просто “колпачок”.
+            Если подготовка зуба сделана плохо, проблемы могут начаться уже после возвращения домой.
+          </div>
+        `
+      },
+
+      veneers: {
+        title: "Виниры",
+        text: `
+          <p>
+            Виниры — это тонкие накладки на переднюю поверхность зубов.
+            Их используют для изменения формы, цвета и визуальной гармонии улыбки.
+          </p>
+
+          <h3>Что важно уточнить</h3>
+          <ul>
+            <li>Будет ли обточка зубов?</li>
+            <li>Какой материал используется?</li>
+            <li>Будет ли примерка формы?</li>
+            <li>Можно ли увидеть будущий результат заранее?</li>
+            <li>Что делать, если цвет или форма не понравятся?</li>
+          </ul>
+
+          <div class="warning">
+            Виниры — не фильтр из Instagram. Если ожидания пациента не совпадают с реальностью,
+            результат может разочаровать даже при технически нормальной работе.
+          </div>
+        `
+      },
+
+      full: {
+        title: "Полное восстановление зубов",
+        text: `
+          <p>
+            Полное восстановление — это комплексное лечение, когда у пациента много проблем:
+            отсутствующие зубы, старые коронки, воспаления, нарушение прикуса,
+            эстетические жалобы или неудачный прошлый опыт.
+          </p>
+
+          <h3>Что важно уточнить</h3>
+          <ul>
+            <li>Сколько этапов потребуется?</li>
+            <li>Какие зубы можно сохранить?</li>
+            <li>Какие зубы нужно удалить?</li>
+            <li>Сколько имплантов планируется?</li>
+            <li>Какие временные конструкции будут на период лечения?</li>
+            <li>Какой срок всего маршрута?</li>
+          </ul>
+
+          <div class="notice">
+            Чем сложнее лечение, тем важнее сопровождение.
+            В комплексных случаях цена ошибки выше, а деталей — больше.
+          </div>
+        `
+      },
+
+      redo: {
+        title: "Переделка после неудачного лечения",
+        text: `
+          <p>
+            Переделка лечения — одна из самых сложных категорий.
+            Пациент часто приходит уже с недоверием, усталостью, болью,
+            потерянными деньгами и страхом снова ошибиться.
+          </p>
+
+          <h3>Что важно уточнить</h3>
+          <ul>
+            <li>Что именно было сделано раньше?</li>
+            <li>Есть ли документы по прошлому лечению?</li>
+            <li>Какие конструкции сейчас стоят?</li>
+            <li>Есть ли воспаление, боль, подвижность?</li>
+            <li>Можно ли сохранить часть работы?</li>
+            <li>Что придётся полностью переделывать?</li>
+          </ul>
+
+          <div class="warning">
+            Переделка почти всегда сложнее первичного лечения.
+            Тут нельзя ехать “на красивую рекламу”. Нужен разбор и холодная голова.
+          </div>
+        `
+      },
+
+      diagnostics: {
+        title: "Диагностика и второе мнение",
+        text: `
+          <p>
+            Второе мнение нужно, если пациент сомневается в плане лечения,
+            не понимает, почему назначено именно это, или получил слишком разные предложения от клиник.
+          </p>
+
+          <h3>Когда это особенно важно</h3>
+          <ul>
+            <li>Цена кажется слишком высокой или слишком низкой.</li>
+            <li>План лечения непонятен.</li>
+            <li>Предлагают удалить много зубов.</li>
+            <li>Есть страх имплантации.</li>
+            <li>Прошлый опыт был негативным.</li>
+            <li>Разные врачи говорят разное.</li>
+          </ul>
+
+          <div class="notice">
+            Второе мнение — это не недоверие врачу.
+            Это нормальная взрослая позиция, когда речь идёт о здоровье и больших деньгах.
+          </div>
+        `
+      }
+    };
+
+    function openTreatment(type) {
+      const details = document.getElementById("treatmentDetails");
+      const data = treatmentInfo[type];
+
+      if (!details || !data) return;
+
+      details.innerHTML = `
+        <h2>${data.title}</h2>
+        ${data.text}
+        <button class="btn btn-primary" onclick="showPage('contacts')">Обсудить этот вид лечения</button>
+      `;
+
+      details.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    /*
+      ==========================================================
+      ПОИСК ПО САЙТУ
+      ==========================================================
+    */
+
+    const siteSearchData = [
+      {
+        title: "Имплантация",
+        page: "treatments",
+        text: "имплантация импланты зубов хирургия костная пластика коронки"
+      },
+      {
+        title: "Виниры",
+        page: "treatments",
+        text: "виниры эстетика улыбка цвет форма зубов"
+      },
+      {
+        title: "Коронки",
+        page: "treatments",
+        text: "коронки протезирование зубы керамика цирконий"
+      },
+      {
+        title: "Документы перед поездкой",
+        page: "prepare",
+        text: "документы снимки кт фото аллергии заболевания лекарства"
+      },
+      {
+        title: "Маршрут пациента",
+        page: "route",
+        text: "маршрут консультация поездка клиника стамбул возвращение домой"
+      },
+      {
+        title: "Безопасность",
+        page: "safety",
+        text: "безопасность риски красные флаги вопросы врачу гарантия"
+      },
+      {
+        title: "После лечения",
+        page: "aftercare",
+        text: "после лечения рекомендации документы боль дискомфорт домой"
+      },
+      {
+        title: "Почему Стамбул",
+        page: "istanbul",
+        text: "стамбул турция стоматология клиники лечение за границей"
+      },
+      {
+        title: "Пакеты сопровождения",
+        page: "prices",
+        text: "цены пакеты стоимость сопровождение консультация полный маршрут"
+      },
+      {
+        title: "Частые вопросы",
+        page: "faq",
+        text: "faq вопросы клиника гарантии снимки сопровождение"
+      }
+    ];
+
+    function searchSite() {
+      const input = document.getElementById("siteSearch");
+      const resultsBox = document.getElementById("searchResults");
+      const query = input.value.trim().toLowerCase();
+
+      resultsBox.innerHTML = "";
+
+      if (!query) {
+        resultsBox.style.display = "block";
+        resultsBox.innerHTML = "<p>Введите слово для поиска.</p>";
+        return;
+      }
+
+      const results = siteSearchData.filter(function(item) {
+        return (
+          item.title.toLowerCase().includes(query) ||
+          item.text.toLowerCase().includes(query)
+        );
+      });
+
+      resultsBox.style.display = "block";
+
+      if (results.length === 0) {
+        resultsBox.innerHTML = "<p>Ничего не найдено. Попробуйте другое слово: имплантация, документы, безопасность, виниры.</p>";
+        return;
+      }
+
+      results.forEach(function(item) {
+        const div = document.createElement("div");
+        div.className = "search-result";
+        div.innerHTML = `
+          <strong>${item.title}</strong>
+          <span>Перейти в раздел: ${pageTitles[item.page]}</span>
+        `;
+
+        div.onclick = function() {
+          showPage(item.page);
+        };
+
+        resultsBox.appendChild(div);
+      });
+    }
+
+    /*
+      ==========================================================
+      ФОРМА ЗАЯВКИ
+      ==========================================================
+    */
+
+    const leadForm = document.getElementById("leadForm");
+
+    leadForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const lead = {
+        name: document.getElementById("name").value,
+        contact: document.getElementById("contact").value,
+        treatmentType: document.getElementById("treatmentType").value,
+        hasImages: document.getElementById("hasImages").value,
+        travelDate: document.getElementById("travelDate").value,
+        message: document.getElementById("message").value,
+        createdAt: new Date().toLocaleString("ru-RU")
+      };
+
+      const oldLeads = JSON.parse(localStorage.getItem("lghDentalLeads")) || [];
+      oldLeads.push(lead);
+      localStorage.setItem("lghDentalLeads", JSON.stringify(oldLeads));
+
+      document.getElementById("formMessage").style.display = "block";
+      leadForm.reset();
+    });
+  </script>
+
+</body>
+</html>
